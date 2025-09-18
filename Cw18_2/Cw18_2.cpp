@@ -12,14 +12,16 @@ namespace fs = filesystem;
 string readFile(string path) {
 	fstream obj1(path, ios::in);
 	string txt;
+	string txt2 = "";
 	bool next = false;
 	if (obj1.is_open()) {
 		while (getline(obj1, txt)) {
 			txt += "\n";
+			txt2 += txt;
 		}
 	}
 	obj1.close();
-	return txt;
+	return txt2;
 }
 void operation(string text, int chastka) {
 	stack<string> st;
@@ -51,6 +53,7 @@ int main()
 	string tex = "";
 	tex = readFile("D:/Token/token.txt");
 	cout << tex;
+	operation(tex, 3);
 	
 	
 }
