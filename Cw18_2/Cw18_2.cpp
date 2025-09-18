@@ -23,7 +23,7 @@ string readFile(string path) {
 	obj1.close();
 	return txt2;
 }
-void operation(string text, int chastka) {
+float operation(string text, int chastka) {
 	stack<string> st;
 	string temp = "";
 	bool nextIsMinus = false;
@@ -42,10 +42,13 @@ void operation(string text, int chastka) {
 			nextIsMinus = true;
 		}
 	}
+	int sum = 0;
 	while (!st.empty()) {
-		cout << st.top() << " ";
+		sum += stoi(st.top());
+		cout << st.top() << "\n";
 		st.pop();
 	}
+	return float(sum/ chastka);
 }
 int main()
 {
@@ -53,7 +56,8 @@ int main()
 	string tex = "";
 	tex = readFile("D:/Token/token.txt");
 	cout << tex;
-	operation(tex, 3);
+	float c = operation(tex, 3);
+	cout << "Result: " << c << '\n';
 	
 	
 }
